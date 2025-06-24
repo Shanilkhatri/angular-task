@@ -1,13 +1,15 @@
 <div>
-    <input
-      type="text"
-      [(ngModel)]="searchTerm"
-      (input)="applySearch()"
-      placeholder="Search by name or email"
-    />
-  
-    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 1rem;">
-      <thead>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="applySearch()"
+    placeholder="Search by name or email"
+  />
+
+  <!-- Scrollable table wrapper -->
+  <div style="max-height: 300px; overflow-y: auto; margin-top: 1rem;">
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
+      <thead style="position: sticky; top: 0; background: white;">
         <tr>
           <th>#</th>
           <th>Name</th>
@@ -16,7 +18,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-  
+
       <tbody>
         <tr *ngFor="let user of filteredUsers; let i = index">
           <td>{{ i + 1 }}</td>
@@ -30,7 +32,7 @@
         </tr>
       </tbody>
     </table>
-  
-    <p *ngIf="filteredUsers.length === 0">No users found.</p>
   </div>
-  
+
+  <p *ngIf="filteredUsers.length === 0">No users found.</p>
+</div>
