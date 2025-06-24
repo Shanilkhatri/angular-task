@@ -1,0 +1,36 @@
+<div>
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="applySearch()"
+      placeholder="Search by name or email"
+    />
+  
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let user of filteredUsers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.status ? 'Active' : 'Inactive' }}</td>
+          <td>
+            <button (click)="onEdit(user)">Edit</button>
+            <button (click)="onDelete(user.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="filteredUsers.length === 0">No users found.</p>
+  </div>
+  

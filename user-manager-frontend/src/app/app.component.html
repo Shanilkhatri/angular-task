@@ -1,0 +1,14 @@
+<div style="padding: 2rem;">
+  <h1>User Manager</h1>
+
+  <!-- This is whee the form is -->
+  <app-user-form
+  [userToEdit]="selectedUser"
+  (userUpdated)="refreshUsers()"
+></app-user-form>
+
+  <hr />
+
+  <!-- This is where my table is -->
+  <app-user-table [refresh]="refreshFlag" (editUser)="loadUserIntoForm($event)"></app-user-table>
+</div>

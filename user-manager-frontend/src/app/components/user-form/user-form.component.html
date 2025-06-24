@@ -1,0 +1,39 @@
+<form (ngSubmit)="submitForm(userForm)" #userForm="ngForm">
+    <div>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="user.name" name="name" pattern="^[A-Za-z\s]{2,}$" required />
+    </div>
+  
+    <!-- <div *ngIf="userForm.submitted && userForm.invalid" style="color: red;">
+        Name must be at least 2 characters and contain only letters/spaces.
+      </div> -->
+      <div *ngIf="userForm.submitted && userForm.controls['name']?.errors?.['required']" style="color: red;">
+        Name is required.
+      </div>
+      
+      <div *ngIf="userForm.submitted && userForm.controls['name']?.errors?.['pattern']" style="color: red;">
+        Name must be at least 2 characters and contain only letters/spaces.
+      </div>
+    <div>
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="user.email" name="email"  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
+    </div>
+    <!-- learned this is how to validate input against the pattern property passed-->
+    <div *ngIf="userForm.submitted && userForm.controls['email']?.errors?.['required']" style="color: red;">
+        Email is required.
+      </div>
+      
+      <div *ngIf="userForm.submitted && userForm.controls['email']?.errors?.['pattern']" style="color: red;">
+        Please enter a valid email address.
+      </div>
+    <div>
+      <label>Status:</label>
+      <input type="checkbox" [(ngModel)]="user.status" name="status" />
+    </div>
+  
+    <button type="submit">{{ isEditing ? 'Update User' : 'Add User' }}</button>
+    <button type="button" (click)="resetForm(userForm)">Reset</button>
+  
+    <p *ngIf="message">{{ message }}</p>
+  </form>
+  
