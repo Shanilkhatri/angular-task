@@ -13,9 +13,9 @@ This app allows you to:
 
  Layer     | Tech Used                              
 -----------|----------------------------------------
- Frontend  | Angular, ngModel, CSS            
+ Frontend  | Angular, CSS            
  Backend   | Node.js, Express, Sequelize ORM        
- Database  | SQLite (in-memory or file-based)       
+ Database  | SQLite        
 
 ##  How to Run It on your system
 
