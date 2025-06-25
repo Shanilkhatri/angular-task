@@ -15,7 +15,7 @@ This app allows you to:
 -----------|----------------------------------------
  Frontend  | Angular, CSS            
  Backend   | Node.js, Express, Sequelize ORM        
- Database  | SQLite        
+ Database  | SQLite    
 
 ##  How to Run It on your system
 
@@ -43,6 +43,8 @@ The backend will start on: http://localhost:3000
 ```
 The Angular frontend will be available at: http://localhost:4200
 
+## Excali for it
+https://excalidraw.com/#json=A9HiffOPWM7Y00R4CcbS8,Qfv1y6QXPeswAnTHfF9Nfg
 
 ## Screenshots
 ![alt text](./screenshots/image.png)
